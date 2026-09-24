@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+:root {
+  --background: #05090c;
+  --foreground: #f4f6f7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid #38b6ff;
+  outline-offset: 3px;
+}
+
+.showroom-shell {
+  background: transparent;
+}
+
+.showroom-vignette {
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.52), transparent 20%, transparent 80%, rgba(0, 0, 0, 0.52)),
+    radial-gradient(ellipse at 50% 65%, transparent 45%, rgba(0, 0, 0, 0.34) 100%);
+}
+
+.ceiling-ring {
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  top: -235px;
+  left: 50%;
+  width: min(1200px, 105vw);
+  height: 300px;
+  transform: translateX(-50%);
+  border: 3px solid rgba(255, 229, 194, 0.72);
+  border-radius: 50%;
+  box-shadow: 0 0 24px rgba(255, 229, 194, 0.55), 0 0 64px rgba(255, 229, 194, 0.18);
+}
+
+@media (max-width: 767px) {
+  .ceiling-ring {
+    top: -150px;
+    height: 205px;
+    border-width: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
