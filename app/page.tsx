@@ -7,9 +7,13 @@ const initialAmount = 3840000;
 const quickAmounts = [1000, 5000, 10000, 50000];
 const rotationFrames = [
   "/porsche-911-cinematic.png",
+  "/porsche-911-rotation-front-side.png",
   "/porsche-911-rotation-left.png",
+  "/porsche-911-rotation-rear-left.png",
   "/porsche-911-rotation-rear.png",
+  "/porsche-911-rotation-rear-right.png",
   "/porsche-911-rotation-right.png",
+  "/porsche-911-rotation-front-return.png",
   "/porsche-911-cinematic.png",
 ];
 
@@ -52,7 +56,7 @@ function ShowroomBackground({ percentage, scrollProgress }: { percentage: number
         const opacity = Math.max(0, 1 - Math.abs(framePosition - index));
 
         return (
-          <div key={`${source}-${index}`} className="absolute inset-0" style={{ opacity }}>
+          <div key={`${source}-${index}`} className="absolute inset-0 transition-opacity duration-75 ease-linear" style={{ opacity, willChange: "opacity" }}>
             <img src={source} alt="" className="h-full w-full object-fill grayscale" />
             <img
               src={source}
